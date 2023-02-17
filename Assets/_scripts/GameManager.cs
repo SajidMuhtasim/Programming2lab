@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour 
 {
+
+  public static GameManager Instance {get; private set;}
+  public Transform playerPosition;
+
+
   List<EnemyMain> enemies = new List<EnemyMain> 
   {
     new Eskeleton()
@@ -22,7 +27,20 @@ public class GameManager : MonoBehaviour
   {
     //Code to shoot bullet
   }
+
+  private void Awake()
+  {
+    if (Instance == null)
+    {
+      Instance = this;
+    }
+    else
+    {
+      Destroy(gameObject);
+    }
+  }
 }
+
 
 
 //Player health code
