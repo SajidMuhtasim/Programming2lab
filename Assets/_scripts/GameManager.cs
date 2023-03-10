@@ -7,13 +7,20 @@ public class GameManager : MonoBehaviour
 
   public static GameManager Instance {get; private set;}
   public Transform playerPosition;
-
+  private playerController playerController; //Not sure if I will be needing this
+  Sprite foodSprite = Resources.Load<Sprite>("food");
+  public GameObject playerObject;
 
   List<EnemyMain> enemies = new List<EnemyMain> 
   {
-    new Eskeleton()
-    
+    new Eskeleton() 
   };
+
+  void Start() 
+    {
+      playerController = FindObjectOfType<playerController>();
+    }
+  
 
   void Update() 
   {

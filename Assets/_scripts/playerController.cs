@@ -7,6 +7,10 @@ public class playerController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
     private Rigidbody rigidBody;
+   [SerializeField] private int currentHealth; 
+
+    [SerializeField] private int maxHealth = 100; 
+
 
     void Awake ()
     {
@@ -48,5 +52,19 @@ public class playerController : MonoBehaviour
     void checkJumpForce()
     {
         rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    
+//For access to other scripts idk how else to do it without making my variables public which I dont want
+    public int CurrentHealth 
+    {
+        get {return currentHealth;}
+        set {currentHealth = value;}
+    }
+
+    public int MaxHealth 
+    {
+        get {return maxHealth;}
+        set {maxHealth = value;}
     }
 }
